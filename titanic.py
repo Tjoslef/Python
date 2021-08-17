@@ -3,6 +3,7 @@
 """
 Created on Tue Aug 17 11:10:24 2021
 
+
 @author: kubrt
 """
 
@@ -14,7 +15,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 # Load the passenger data
-passengers = pd.read_csv('passengers.csv')
+passengers = pd.read_csv('train.csv')
 # Update sex column to numerical
 passengers['Sex'] = passengers['Sex'].map({'male': 0, 'female': 1})
 
@@ -43,14 +44,14 @@ model = LogisticRegression()
 model.fit(train_features, train_labels)
 
 # Score the model on the train data
-#print(model.score(train_features,train_labels))
+print(model.score(train_features,train_labels))
 
 # Score the model on the test data
-#print(model.score(test_features,test_labels))
+print(model.score(test_features,test_labels))
 
 
 # Analyze the coefficients
-#print(list(zip(['Sex','Age','FirstClass','SecondClass'],model.coef_[0])))
+print(list(zip(['Sex','Age','FirstClass','SecondClass'],model.coef_[0])))
 
 # Sample passenger features
 Jack = np.array([0.0,20.0,0.0,0.0])
@@ -62,7 +63,6 @@ sample_passengers = np.array([Jack,Rose,You])
 
 # Scale the sample passenger features
 sample_passengers = scaler.transform(sample_passengers)
-model.predict(sample_passengers)
+print(model.predict(sample_passengers))
 print(model.predict_proba(sample_passengers))
 # Make survival predictions!
-
