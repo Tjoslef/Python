@@ -63,6 +63,6 @@ sample_passengers = np.array([Jack,Rose,You])
 
 # Scale the sample passenger features
 sample_passengers = scaler.transform(sample_passengers)
+# Make survival predictions!
 print(model.predict(sample_passengers))
 print(model.predict_proba(sample_passengers))
-# Make survival predictions!
